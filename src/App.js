@@ -1,74 +1,51 @@
-import React, {useEffect, useState, Component} from 'react';
+import React, { useEffect, useState, Component } from 'react'
 // get our fontawesome imports
 import 'font-awesome/css/font-awesome.min.css'
 
-import './App.css';
-import Subreddit from './Subreddit.js';
-
-
+import './App.css'
+import Subreddit from './Subreddit.js'
 
 const App = () => {
+  const [subs, setSubs] = useState([])
+  const [search, setSearch] = useState('')
+  const [query, setQuery] = "dogs";
 
-  const [subs, setSubs] = useState([]);
-  const [search, setSearch] = useState("");
-  const [query, setQuery] = useState('')
-
-  useEffect (() => {
-getSubs();
-
-    }, [query]);
-
-
-
+  useEffect(() => {
+    getSubs();
+  }, [query])
 
   const getSubs = async () => {
-    const response = await fetch(`https://www.reddit.com/r/${query}.json`);
-    const data = await response.json();
-    console.log(data);
-    setSubs(subs.data);
-
-
-
-    }
-
-
-
-
-
+    const response = await fetch(`https://www.reddit.com/r/${query}.json`)
+    const data = await response.json()
+    console.log(data.children)
+    setSubs(data.children); // Because, children is the Array data you are looking for
+    // setSubs(prevSubs => prevSubs.concat(data.data.children)) // Use this setState with function argument if you want to concat API response with previous state data
+  }
 
   return (
     <div className="App">
-     <h1 className="header">Reddit  <i className="fa fa-reddit"></i> </h1>
+      <h1 className="header">
+        Reddit <i className="fa fa-reddit"></i>
+      </h1>
 
-     <form>
-        <input type="text" ></input>
+      <form>
+        <input type="text"></input>
         <button type="submit">Search</button>
-     </form>
+      </form>
+<div>
+      {subs && subs.map((subs, index) => {
+         let {data = {} } = subs // 
+         return (
+        <Subreddit
+        title={data.name}
+        subreddit={data.subreddit}
+        post={data.selftext}
+        url={data.url}
+        />
+      )
+         })}
+    </div></div>
+  )
+}
 
-
-
-
-{subs.map(subs =>
-
-
-  (<Subreddit
-
-    title={subs.children.name}
-  subreddit={subs.children.subreddit}
-post={subs.children.data.selftext}
-url={subs.children.data.url}
-  /> )) }
-
-      </div>
-
-    );
-  };
-
-
-
-
-
-
-
-
-export default App;
+export default App
