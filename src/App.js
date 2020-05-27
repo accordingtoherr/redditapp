@@ -6,7 +6,7 @@ import './App.css'
 import Subreddit from './Subreddit.js'
 
 const App = () => {
-  const [subs, setSubs] = useState([])
+  const [subs, setSubs] = useState([]);
   const [search, setSearch] = useState('')
   const [query, setQuery] = "dogs";
 
@@ -15,9 +15,13 @@ const App = () => {
   }, [query])
 
   const getSubs = async () => {
-    const response = await fetch(`https://www.reddit.com/r/${query}.json`)
-    const data = await response.json()
-    console.log(data.children)
+    const response = await fetch(`https://www.reddit.com/search.json?q=${query}`)
+   
+
+    
+    const data = await response.json();
+    console.log(data.data.children);
+
     setSubs(data.children); // Because, children is the Array data you are looking for
     // setSubs(prevSubs => prevSubs.concat(data.data.children)) // Use this setState with function argument if you want to concat API response with previous state data
   }
@@ -32,19 +36,22 @@ const App = () => {
         <input type="text"></input>
         <button type="submit">Search</button>
       </form>
-<div>
-      {subs && subs.map((subs, index) => {
+
+      {subs && subs.map((subs) => {
          let {data = {} } = subs // 
          return (
         <Subreddit
-        title={data.name}
-        subreddit={data.subreddit}
-        post={data.selftext}
+        title={subs.data.title}
+        subreddit={subs.data.subreddit}
+        post={subs.data.selftext}
         url={data.url}
+     
         />
       )
+      
          })}
-    </div></div>
+         
+    </div>
   )
 }
 
