@@ -22,7 +22,7 @@ const App = () => {
     const data = await response.json();
     console.log(data.data.children);
 
-    setSubs(data.children); // Because, children is the Array data you are looking for
+    setSubs(data.data.children.data); // Because, children is the Array data you are looking for
     // setSubs(prevSubs => prevSubs.concat(data.data.children)) // Use this setState with function argument if you want to concat API response with previous state data
   }
 
@@ -37,22 +37,20 @@ const App = () => {
         <button type="submit">Search</button>
       </form>
 
-      {subs && subs.map((subs) => {
-         let {data = {} } = subs // 
-         return (
+      {subs && subs.map((subs) => 
+       
         <Subreddit
-        title={subs.data.title}
-        subreddit={subs.data.subreddit}
-        post={subs.data.selftext}
-        url={data.url}
+        title={subs.title.data}
+        subreddit={subs.subreddit}
+        post={subs.selftext}
+        url={subs.data.url}
      
         />
-      )
       
-         })}
+      )}
          
     </div>
   )
 }
 
-export default App
+export default App;
