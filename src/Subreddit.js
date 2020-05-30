@@ -1,6 +1,6 @@
 import React, {useEffect, useState, Component} from 'react';
 // get our fontawesome imports
-import 'font-awesome/css/font-awesome.min.css'
+
 
 import './App.css';
 

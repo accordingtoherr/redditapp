@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Component } from 'react'
 // get our fontawesome imports
-import 'font-awesome/css/font-awesome.min.css'
+
 
 import './App.css'
 import Subreddit from './Subreddit.js'
@@ -22,7 +22,7 @@ const App = () => {
     const data = await response.json();
     console.log(data.data.children);
 
-    setSubs(data.data.children.data); // Because, children is the Array data you are looking for
+    setSubs(data.data.children); // Because, children is the Array data you are looking for
     // setSubs(prevSubs => prevSubs.concat(data.data.children)) // Use this setState with function argument if you want to concat API response with previous state data
   }
 
@@ -40,9 +40,9 @@ const App = () => {
       {subs && subs.map((subs) => 
        
         <Subreddit
-        title={subs.title.data}
-        subreddit={subs.subreddit}
-        post={subs.selftext}
+        title={subs.data.title}
+        subreddit={subs.data.subreddit}
+        post={subs.data.selftext}
         url={subs.data.url}
      
         />
