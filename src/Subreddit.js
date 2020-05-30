@@ -9,11 +9,11 @@ import './App.css';
 
     return(
 
-  <div>     
-<h1>{title}</h1>
-<h2>{subreddit}</h2>
-<p>{post}</p>
-<a href="">{url}</a>
+  <div className="items">     
+<h1 className="subtitle">{title}</h1>
+<h2 className="subreddit">{subreddit}</h2>
+<p className="subpost">{post}</p>
+<a className="subsite" href="">{url}</a>
 </div>
 
     );

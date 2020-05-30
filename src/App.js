@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Component } from 'react'
 // get our fontawesome imports
+import Logo from './assets/reddit.png';
 
 
 import './App.css'
@@ -7,8 +8,9 @@ import Subreddit from './Subreddit.js'
 
 const App = () => {
   const [subs, setSubs] = useState([]);
-  const [search, setSearch] = useState('')
-  const [query, setQuery] = "dogs";
+  const [search, setSearch] = useState('');
+  const [query, setQuery] = useState('dogs');
+  
 
   useEffect(() => {
     getSubs();
@@ -26,15 +28,27 @@ const App = () => {
     // setSubs(prevSubs => prevSubs.concat(data.data.children)) // Use this setState with function argument if you want to concat API response with previous state data
   }
 
+
+  const updateSearch = e => {
+setSearch(e.target.value);
+console.log(search);
+  };
+
+  const getSearch = e => {
+e.preventDefault();
+setQuery(search);
+
+  }
+
   return (
     <div className="App">
       <h1 className="header">
-        Reddit <i className="fa fa-reddit"></i>
+        Reddit  <img className="reddit" src={Logo}></img>
       </h1>
 
-      <form>
-        <input type="text"></input>
-        <button type="submit">Search</button>
+      <form className="searchform" onSubmit={getSearch}>
+        <input type="text" className="searchbar" value={search} onChange={updateSearch}></input>
+        <button type="submit" className="button">Search</button>
       </form>
 
       {subs && subs.map((subs) => 
