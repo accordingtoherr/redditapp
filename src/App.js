@@ -40,8 +40,11 @@ setQuery(search);
 
   }
 
+  
+  
   return (
     <div className="App">
+      
       <h1 className="header">
         Reddit  <img className="reddit" src={Logo}></img>
       </h1>
@@ -53,6 +56,7 @@ setQuery(search);
 
       {subs && subs.map((subs) => 
        
+
         <Subreddit
         title={subs.data.title}
         subreddit={subs.data.subreddit}
