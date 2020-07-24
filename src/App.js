@@ -61,7 +61,7 @@ setQuery(search);
         title={subs.data.title}
         subreddit={subs.data.subreddit}
         post={subs.data.selftext}
-        url={subs.data.url}
+        image={subs.data.thumbnail}
      
         />
         

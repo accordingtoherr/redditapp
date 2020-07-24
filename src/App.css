@@ -59,3 +59,10 @@
 .subtitle {
   text-align: center;
 }
+
+.subimg{
+max-height: 400px;
+max-height: 400px;
+border-radius: 30%;
+
+}
