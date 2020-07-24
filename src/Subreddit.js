@@ -13,7 +13,7 @@ import './App.css';
 <h1 className="subtitle">{title}</h1>
 <h2 className="subreddit">{subreddit}</h2>
 <p className="subpost">{post}</p>
-<a className="subsite" href="">{url}</a>
+{/* <a className="subsite" href="">{url}</a> */}
 </div>
 
     );
