@@ -12,11 +12,14 @@ import './App.css';
   <div className="items">
     <div className= "subitem">
 <h1 className="subtitle">{title}</h1>
+<img className="subimg"  src={image} />
 <h2 className="subreddit">Subreddit: {subreddit}</h2>
 <p className="subpost">{post}</p>
 
-<img className="subimg" src={image}></img>
-<button className="bttn-unite bttn-md bttn-primary"><a className="buttontext" href={link}>Learn More</a></button>
+  {/* {props.localFile ? <Img fluid={props.localFile.childImageSharp.fluid} alt={name} /> : <img src="default image" />} */}
+
+
+<a className="myButton" add target="_blank" href={link}>Learn More</a>
 
 
 {/* <a className="subsite" href="">{url}</a> */}
