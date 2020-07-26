@@ -4,7 +4,7 @@ import React, {useEffect, useState, Component} from 'react';
 
 import './App.css';
 
- const Subreddit =  ({title, subreddit, post, image}) =>{
+ const Subreddit =  ({title, subreddit, post, image, link}) =>{
 
 
     return(
@@ -12,10 +12,11 @@ import './App.css';
   <div className="items">
     <div className= "subitem">
 <h1 className="subtitle">{title}</h1>
-<h2 className="subreddit">{subreddit}</h2>
+<h2 className="subreddit">Subreddit: {subreddit}</h2>
 <p className="subpost">{post}</p>
 
 <img className="subimg" src={image}></img>
+<button className="bttn-unite bttn-md bttn-primary"><a className="buttontext" href={link}>Learn More</a></button>
 
 
 {/* <a className="subsite" href="">{url}</a> */}

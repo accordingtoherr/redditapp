@@ -62,6 +62,7 @@ setQuery(search);
         subreddit={subs.data.subreddit}
         post={subs.data.selftext}
         image={subs.data.thumbnail}
+        link={subs.data.url}
      
         />
         
