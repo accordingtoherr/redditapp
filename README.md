@@ -1,3 +1,13 @@
+Reddit search app to search all of Reddit in a simple, seamless UI. The UI includes a search bar where a user can search anything they want and the application will return a styled list of everything on Reddit meeting that criteria. Also, for all applicable posts, there is a "Learn More" CTA to bring a user to the Reddit thread or page.
+
+Technology Used: 
+- React using hooks and functional components
+- Reddit API
+- Netlify for hosting 
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
